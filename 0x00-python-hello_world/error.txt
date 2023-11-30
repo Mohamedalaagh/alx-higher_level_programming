@@ -1,0 +1,1 @@
+bash: command_that_might_fail: command not found
