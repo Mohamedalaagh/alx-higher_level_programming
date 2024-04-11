@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 # 2-square.py
-class Square:
+"""Square class defination."""
 
-    " Calculate the square "
+
+class Square:
+    """Square class body"""
 
     def __init__(self, size=0):
-        """ Creating a private attribute
-        args:
-            size(int): the size of the new square.
+        """Square class contructor
+        Args:
+            size (int): The size of the new square.
         """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
