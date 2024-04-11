@@ -9,8 +9,8 @@ class Square:
         args:
             size(int): the size of the new square.
         """
-        self.__size = size
         if type(self.__size) != int:
             raise TypeError("size must be an integer")
         elif self.__size < 0:
             raise ValueError("size must be >= 0")
+        self.__size = size
