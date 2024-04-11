@@ -2,6 +2,7 @@
 # 2-square.py
 """Square class definition"""
 
+
 class Square:
     " Calculate the square "
 
