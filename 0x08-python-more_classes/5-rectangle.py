@@ -1,26 +1,65 @@
 #!/usr/bin/python3
+"""Module 5-rectangle
+"""
+
 
 class Rectangle:
-    """Defines a rectangle."""
+    """Defines a rectangle by its width and height.
+
+    Attributes:
+        width (int): The width of the rectangle.
+        height (int): The height of the rectangle.
+    """
 
     def __init__(self, width=0, height=0):
-        """Initializes a Rectangle instance.
+        """Initializes a Rectangle instance with optional width and height.
 
         Args:
-            width (int, optional): The width of the rectangle.
-            height (int, optional): The height of the rectangle.
+            width (int, optional): The width of the rectangle (default is 0).
+            height (int, optional): The height of the rectangle (default is 0).
         """
         self.width = width
         self.height = height
 
+    def __str__(self):
+        """Returns a string representation of the rectangle with '#' characters.
+
+        Returns:
+            str: A string representing the rectangle.
+        """
+        if self.__height == 0 or self.__width == 0:
+            return ''
+        rectangle_str = ''
+        for i in range(self.__height):
+            for j in range(self.__width):
+                rectangle_str += '#'
+            rectangle_str += '\n'
+        return rectangle_str[:-1]
+
+    def __repr__(self):
+        """Returns a string representation of a Rectangle instance.
+
+        Returns:
+            str: A formal string representation of the rectangle.
+        """
+        return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        """Deletes a Rectangle instance."""
+        print("Bye rectangle...")
+
     @property
     def width(self):
-        """Retrieves the width of the rectangle."""
+        """Retrieves the width of a Rectangle instance.
+
+        Returns:
+            int: The width of the rectangle.
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Sets the width of the rectangle.
+        """Sets the width of a Rectangle instance.
 
         Args:
             value (int): The width of the rectangle.
@@ -37,12 +76,16 @@ class Rectangle:
 
     @property
     def height(self):
-        """Retrieves the height of the rectangle."""
+        """Retrieves the height of a Rectangle instance.
+
+        Returns:
+            int: The height of the rectangle.
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Sets the height of the rectangle.
+        """Sets the height of a Rectangle instance.
 
         Args:
             value (int): The height of the rectangle.
@@ -58,7 +101,7 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Calculates the area of the rectangle.
+        """Calculates the area of a Rectangle instance.
 
         Returns:
             int: The area of the rectangle.
@@ -66,7 +109,7 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
-        """Calculates the perimeter of the rectangle.
+        """Calculates the perimeter of a Rectangle instance.
 
         Returns:
             int: The perimeter of the rectangle.
@@ -75,24 +118,3 @@ class Rectangle:
             return 0
         return 2 * (self.__width + self.__height)
 
-    def __str__(self):
-        """Returns a string representation of the rectangle.
-
-        Returns:
-            str: A string representing the rectangle with '#' characters.
-        """
-        if self.__height == 0 or self.__width == 0:
-            return ""
-        return '\n'.join(['#' * self.__width for _ in range(self.__height)])
-
-    def __repr__(self):
-        """Returns a string representation of the rectangle.
-
-        Returns:
-            str: A formal string representation of the rectangle.
-        """
-        return "Rectangle({}, {})".format(self.__width, self.__height)
-
-    def __del__(self):
-        """Prints a message when an instance of Rectangle is deleted."""
-        print("Bye rectangle...")
