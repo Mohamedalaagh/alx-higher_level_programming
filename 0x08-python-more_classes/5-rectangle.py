@@ -22,7 +22,7 @@ class Rectangle:
         self.height = height
 
     def __str__(self):
-        """Returns a string representation of the rectangle with '#' characters.
+        """Returns a string representation of rectangle with '#' characters.
 
         Returns:
             str: A string representing the rectangle.
@@ -117,4 +117,3 @@ class Rectangle:
         if self.__height == 0 or self.__width == 0:
             return 0
         return 2 * (self.__width + self.__height)
-
