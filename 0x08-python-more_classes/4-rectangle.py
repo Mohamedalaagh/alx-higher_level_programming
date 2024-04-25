@@ -89,7 +89,7 @@ class Rectangle:
         Returns a string representation of the rectangle.
 
         If either width or height is 0, returns an empty string.
-        Otherwise, returns a string of '#' characters representing the rectangle.
+        Otherwise, returns a string of '#' characters representing rectangle.
 
         Returns:
             str: A string representing the rectangle.
@@ -106,4 +106,3 @@ class Rectangle:
             str: A formal string representation of the rectangle.
         """
         return "Rectangle({}, {})".format(self.__width, self.__height)
-
