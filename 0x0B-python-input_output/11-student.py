@@ -29,4 +29,3 @@ class Student:
         """
         for key, value in json_data.items():
             setattr(self, key, value)
-
