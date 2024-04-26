@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-"""
-Defines a function to vividly showcase the contents of a UTF-8 encoded text file on the standard output.
-"""
+"""Defines a file reading module."""
 
-def display_file_content(filename=""):
-    """
-    Open and read a UTF-8 encoded text file, presenting its vibrant contents on the standard output.
-    """
-    with open(filename, encoding="utf-8") as f:
-        print(f.read(), end="")
 
+def read_file(file_name=""):
+    """
+    read_file function
+    Reads a text file (UTF8) and prints its contents to standard output
+    """
+    with open(file_name, mode='r', encoding='utf-8') as file:
+        print(file.read(), end='')
