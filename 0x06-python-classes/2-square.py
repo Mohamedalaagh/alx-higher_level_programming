@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#1-square by moalaa
+# 1-square by moalaa
 """Define a square"""
 
 
@@ -10,6 +10,9 @@ class Square:
         """Creating a private attribute with specific condition
     args:
         size(int): the size of the new square.
+    Raises:
+            TypeError: if size is not integer
+            ValueError: if size is less than zero
     """
 
         if not type(size) == int:
