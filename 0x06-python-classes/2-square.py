@@ -3,12 +3,14 @@
 
 
 class Square:
-    """Creating a private attribute with specific condition
+    """A class that represents a square"""
+
+    def __init__(self, size=0):
+        """Creating a private attribute with specific condition
     args:
         size(int): the size of the new square.
     """
 
-    def __init__(self, size=0):
         if not type(size) == int:
             raise TypeError("size must be an integer")
         elif size < 0:
