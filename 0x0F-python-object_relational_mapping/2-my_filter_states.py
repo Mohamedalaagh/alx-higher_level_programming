@@ -14,7 +14,8 @@ if __name__ == '__main__':
     db_cursor = db_connection.cursor()
 
     # Formulate the SQL query
-    query = "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY states.id ASC".format(argv[4])
+    query = "SELECT * FROM states WHERE name LIKE BINARY '{}' \
+            ORDER BY states.id ASC".format(argv[4])
     db_cursor.execute(query)
     states = db_cursor.fetchall()
 
