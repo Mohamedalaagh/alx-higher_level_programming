@@ -1,24 +1,37 @@
 #!/usr/bin/python3
 """
-This script takes in the name of a state as an argument and lists all cities
-of that state, using the database hbtn_0e_4_usa.
+This script takes in the name of a state as an argument
+and lists all cities of that state, 
+using the database `hbtn_0e_4_usa`.
 """
 
 import MySQLdb as db
 from sys import argv
 
-if __name__ == '__main__':
-    db_connection = db.connect(host="localhost", port=3306,
-                               user=argv[1], passwd=argv[2], db=argv[3])
-    db_cursor = db_connection.cursor()
+if __name__ == "__main__":
+    """
+    Connect to the MySQL database and fetch cities for a given state.
+    """
 
-    db_cursor.execute(
-        "SELECT cities.name FROM cities JOIN states ON \
-                cities.state_id = states.id\
-                WHERE states.name = %s ORDER BY cities.id ASC", (argv[4],))
-    cities = db_cursor.fetchall()
+    connection = db.connect(host="localhost", port=3306,
+                            user=argv[1], passwd=argv[2], db=argv[3])
 
-    print(", ".join([city[0] for city in cities]))
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT
+                cities.id, cities.name
+            FROM
+                cities
+            JOIN
+                states
+            ON
+                cities.state_id = states.id
+            WHERE
+                states.name LIKE BINARY %(state_name)s
+            ORDER BY
+                cities.id ASC
+        """, {'state_name': argv[4]})
+        result = cursor.fetchall()
 
-    db_cursor.close()
-    db_connection.close()
+    if result is not None:
+        print(", ".join([city[1] for city in result]))
