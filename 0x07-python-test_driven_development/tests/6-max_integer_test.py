@@ -37,3 +37,7 @@ class TestMaxInteger(unittest.TestCase):
         """test a function of list conatain different data types"""
         with self.assertRaises(TypeError):
             max_integer([1, "string", (2, 5)])
+
+
+if __name__ == '__main__':
+    unittest.main()
