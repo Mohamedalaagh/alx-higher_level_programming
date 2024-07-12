@@ -1,0 +1,78 @@
+Test cases for 100-matrix_mul module.
+========================================
+
+The 100-matrix_mul module takes two matrices and return the multiplication result of them.
+
+============================================================================================
+
+Import function
+    >>> matrix_mul = __import__("100-matrix_mul").matrix_mul
+
+
+Testing passing of two matrices
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12], [13, 14, 15]])
+    [[66, 72, 78], [156, 171, 186]]
+
+
+Testing passing a data type rather than list (a = "string")
+    >>> matrix_mul("string", [[7, 8, 9], [10, 11, 12], [13, 14, 15]])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list
+
+
+Testing passing a data type rather than list (b = True)
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], True)
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list
+
+
+Testing passing an empty list (m_a = [])
+    >>> matrix_mul([], [[7, 8, 9], [10, 11, 12], [13, 14, 15]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
+
+
+Testing passing an empty list (m_b =[])
+    >>> matrix_mul([[1, 2, 3]], [])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_b can't be empty
+
+
+Testing passing a list contains an empty list (m_a = [[]])
+    >>> matrix_mul([[]], [[4, 5, 6], [7, 8, 9], [10, 11, 12]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
+
+
+Testing passing a list contains an empty list (m_b = [[]])
+    >>> matrix_mul([[1, 2, 3]], [[]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_b can't be empty
+
+
+Testing passing a list has unequal list legnth (m_a = [[1, 2], [3, 4, 5]])
+    >>> matrix_mul([[1, 2], [3, 4, 5]], [[4, 5, 6], [7, 8, 9], [10, 11, 12]])
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must be of the same size
+
+
+Testing passing a list has unequal list legnth (m_b = [[7, 8, 9], [12], [13, 14, 15]])
+    >>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [12], [13, 14, 15]])
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_b must be of the same size
+
+
+Testing passing two matrices that mathematically impossible to be multipulated
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4], [4, 5]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a and m_b can't be multiplied
+
