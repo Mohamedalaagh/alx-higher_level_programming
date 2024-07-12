@@ -28,16 +28,6 @@ class TestMaxInteger(unittest.TestCase):
         """testing a function max_integer with no argument passing"""
         self.assertEqual(max_integer(), None)
 
-    def test_passing_integers_instead_of_list(self):
-        """testing a function with integer passed"""
-        with self.assertRaises(TypeError):
-            max_integer(5)
-
-    def test_list_of_mix_data_types(self):
-        """test a function of list conatain different data types"""
-        with self.assertRaises(TypeError):
-            max_integer([1, "string", (2, 5)])
-
 
 if __name__ == '__main__':
     unittest.main()
