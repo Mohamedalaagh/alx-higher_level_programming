@@ -91,5 +91,6 @@ class Rectangle(Base):
                     print()
 
     def __str__(self):
+        """Method that override str method"""
         return (f"[Rectangle] (<{self.id}>) <{self.x}>/<{self.y}> - "
                 f"<{self.width}>/<{self.height}>")
