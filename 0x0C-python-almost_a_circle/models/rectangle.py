@@ -84,11 +84,16 @@ class Rectangle(Base):
 
     def display(self):
         """Display the rectangle in the form of #"""
+        for i in range(self.y):
+            print()
         for i in range(self.height):
-            for j in range(self.width):
-                print("#", end="")
-                if j == self.width - 1:
-                    print()
+            for j in range(self.width + self.x):
+                if j in range(self.x):
+                    print(' ', end='')
+                else:
+                    print("#", end="")
+                    if j == self.width + self.x - 1:
+                        print()
 
     def __str__(self):
         """Method that override str method"""
