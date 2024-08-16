@@ -95,15 +95,15 @@ class Rectangle(Base):
                     if j == self.width + self.x - 1:
                         print()
 
+    def update(self, *args):
+        """Update attributes"""
+        attributes = ['id', 'width', 'height', 'x', 'y']
+
+        for i, value in enumerate(args):
+            if i < len(attributes):
+                setattr(self, attributes[i], value)
+
     def __str__(self):
         """Method that override str method"""
         return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
                 f"{self.width}/{self.height}")
-
-    def update(self, *args):
-        """Update attributes"""
-    attributes = ['id', 'width', 'height', 'x', 'y']
-    
-    for i, value in enumerate(args):
-        if i < len(attributes):
-            setattr(self, attributes[i], value)
