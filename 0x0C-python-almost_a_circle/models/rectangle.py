@@ -101,14 +101,9 @@ class Rectangle(Base):
                 f"{self.width}/{self.height}")
 
     def update(self, *args):
-        lis = [self.id, self.width, self.height, self.x, self.y]
-        for i in range(len(args)):
-            if i + 1 > len(lis):
-                break
-            lis[i] = args[i]
-
-        self.id = lis[0]
-        self.width = lis[1]
-        self.height = lis[2]
-        self.x = lis[3]
-        self.y = lis[4]
+        """Update attributes"""
+    attributes = ['id', 'width', 'height', 'x', 'y']
+    
+    for i, value in enumerate(args):
+        if i < len(attributes):
+            setattr(self, attributes[i], value)
