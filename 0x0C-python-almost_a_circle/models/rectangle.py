@@ -96,6 +96,7 @@ class Rectangle(Base):
                         print()
 
     def update(self, *args, **kwargs):
+        """updating by adding keywors arguments"""
         attributes = ['id', 'width', 'height', 'x', 'y']
 
         if args:
