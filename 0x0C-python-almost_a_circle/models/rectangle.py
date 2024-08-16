@@ -95,13 +95,16 @@ class Rectangle(Base):
                     if j == self.width + self.x - 1:
                         print()
 
-    def update(self, *args):
-        """Update attributes"""
+    def update(self, *args, **kwargs):
         attributes = ['id', 'width', 'height', 'x', 'y']
 
-        for i, value in enumerate(args):
-            if i < len(attributes):
-                setattr(self, attributes[i], value)
+        if args:
+            for i, value in enumerate(args):
+                if i < len(attributes):
+                    setattr(self, attributes[i], value)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __str__(self):
         """Method that override str method"""
