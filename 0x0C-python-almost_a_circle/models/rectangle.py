@@ -99,3 +99,16 @@ class Rectangle(Base):
         """Method that override str method"""
         return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
                 f"{self.width}/{self.height}")
+
+    def update(self, *args):
+        lis = [self.id, self.width, self.height, self.x, self.y]
+        for i in range(len(args)):
+            if i + 1 > len(lis):
+                break
+            lis[i] = args[i]
+
+        self.id = lis[0]
+        self.width = lis[1]
+        self.height = lis[2]
+        self.x = lis[3]
+        self.y = lis[4]
