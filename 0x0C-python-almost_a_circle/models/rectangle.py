@@ -107,6 +107,16 @@ class Rectangle(Base):
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
+    def to_dictionary(self):
+        """returns a string representation of the rectancle"""
+        return{
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
+
     def __str__(self):
         """Method that override str method"""
         return (f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
