@@ -33,6 +33,15 @@ class Square(Rectangle):
             for key, value in kwargs.items():
                 setattr(self, key, value)
 
+    def to_dictionary(self):
+        """return a dictionary representation of square"""
+        return {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y
+        }
+
     def __str__(self):
         """Return a string represintation for user"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
